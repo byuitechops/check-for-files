@@ -1,11 +1,9 @@
 {
   "name": "course-has-content",
   "version": "1.0.0",
-  "description": "Ensure course files are not empty before moving course into canvas",
+  "description": "Ensures the course has content so it can upload without breaking",
   "main": "main.js",
-  "dependencies": {
-    "canvas-wrapper": "github:byuitechops/canvas-wrapper"
-  },
+  "dependencies": {},
   "devDependencies": {
     "async": "^2.6.0",
     "child-development-kit": "github:byuitechops/child-development-kit",
@@ -13,6 +11,7 @@
   },
   "scripts": {
     "start": "node ./node_modules/child-development-kit/runChild.js",
+    "inspect": "node --inspect-brk ./node_modules/child-development-kit/runChild.js",
     "test": "tap ./node_modules/child-development-kit/runChild.js -T"
   },
   "repository": {
@@ -25,5 +24,5 @@
     "url": "https://github.com/byuitechops/course-has-content/issues"
   },
   "homepage": "https://github.com/byuitechops/course-has-content#readme",
-  "childType": "shell"
+  "childType": "preImport"
 }
