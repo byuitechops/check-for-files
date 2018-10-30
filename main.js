@@ -1,6 +1,6 @@
 /*eslint-env node, es6*/
 
-/* Module Description */
+/* Ensure course has at least one module and one file before attempting to upload to canvas */
 
 /* Put dependencies here */
 

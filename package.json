@@ -1,5 +1,5 @@
 {
-  "name": "check-for-files",
+  "name": "course-has-content",
   "version": "1.0.0",
   "description": "Ensure course files are not empty before moving course into canvas",
   "main": "main.js",
@@ -17,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/byuitechops/check-for-files.git"
+    "url": "git+https://github.com/byuitechops/course-has-content.git"
   },
   "author": "Daniel Green",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/byuitechops/check-for-files/issues"
+    "url": "https://github.com/byuitechops/course-has-content/issues"
   },
-  "homepage": "https://github.com/byuitechops/check-for-files#readme",
+  "homepage": "https://github.com/byuitechops/course-has-content#readme",
   "childType": "shell"
 }

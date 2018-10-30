@@ -1,5 +1,5 @@
 # Check for files
-### *Package Name*: check-for-files
+### *Package Name*: course-has-content
 ### *Child Type*: shell
 ### *Platform*: All
 ### *Required*: Required
@@ -13,7 +13,7 @@ This child module is meant to prevent an error that occurs while uploading a cou
 ## How to Install
 
 ```
-npm install check-for-files
+npm install course-has-content
 ```
 
 ## Run Requirements
