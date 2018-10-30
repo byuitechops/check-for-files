@@ -2,8 +2,8 @@
 
 /* Ensure course has at least one module and one file before attempting to upload to canvas */
 
-/* Put dependencies here */
-// const fs = require('fs');
+/* this is beign used by the File object constructor */
+const cheerio = require('cheerio');
 
 module.exports = (course, stepCallback) => {
 
@@ -12,7 +12,7 @@ module.exports = (course, stepCallback) => {
     /* check for at least one module */
     // <resource identifier="RES_CONTENT_7053804" type="webcontent" d2l_2p0:material_type="contentmodule" d2l_2p0:link_target="" href="" title="" />
     var manifest = course.content.find(file => file.name === 'imsmanifest.xml');
-
+    
 
 
     /* check for at least one file. It DOES NOT have to be linked to a module */
