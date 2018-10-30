@@ -10,7 +10,6 @@ module.exports = (course, stepCallback) => {
     course.message(`file count: ${course.content.length}`);
 
     /* check for at least one module */
-    // <resource identifier="RES_CONTENT_7053804" type="webcontent" d2l_2p0:material_type="contentmodule" d2l_2p0:link_target="" href="" title="" />
     var manifest = course.content.find(file => file.name === 'imsmanifest.xml');
     var moduleCount = manifest.dom('resource[d2l_2p0\\:material_type="contentmodule"]').length;
 
@@ -18,6 +17,7 @@ module.exports = (course, stepCallback) => {
         var err = new Error('Unable to import: Modules is empty. Please add a module and try again');
         course.fatalError(err);
         stepCallback(err, course);
+        return;
     }
 
     /* check for at least one file. It DOES NOT have to be linked to a module */
@@ -26,11 +26,12 @@ module.exports = (course, stepCallback) => {
         const fileGuts = '<html><body><h1>this is a dummy file created by the d2l to canvas conversion tool. Please delete me.</h1></body></html>',
             fileName = 'dummyFile.html';
 
-        let dummyFile = new course.content[0].constructor(`${course.info.unzippedPath}\\${fileName}`, fileGuts, true);
+        /* magic used to copy the File object https://github.com/byuitechops/index-directory/blob/master/File.js */
+        let tempFile = new course.content[0].constructor(`${course.info.unzippedPath}\\${fileName}`, fileGuts, true);
 
-        course.content.push(dummyFile);
+        course.content.push(tempFile);
 
-        course.newInfo('tempFileAdded', true);
+        course.newInfo('tempFile', fileName);
         course.log('Added temp HTML file for conversion', {fileName});
     }
 

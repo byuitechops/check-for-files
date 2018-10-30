@@ -1,6 +1,6 @@
 # Check for files
 ### *Package Name*: course-has-content
-### *Child Type*: shell
+### *Child Type*: Shell
 ### *Platform*: All
 ### *Required*: Required
 
@@ -18,7 +18,10 @@ npm install course-has-content
 
 ## Run Requirements
 
-`course.content` is required.
+The following Course properties are required.
+`course.content`
+`course.info.unzippedPath`
+
 
 ## Options
 
@@ -26,27 +29,27 @@ None
 
 ## Outputs
 
-It may spit out a flag to a later child module to delete the dummy file. Not sure how possible that is.
+It may create a temporary file in the course & course object. The name of this file is saved in course.info as described below:
 
 | Name | Type | Location |
 |--------|--------|-------------|
-|courseFilesEmpty| Boolean | course.info|
+|tempFile| String | course.info|
 
 ## Process
 
 Describe in steps how the module accomplishes its goals.
 
-1. Does this thing
-2. Does that thing
-3. Does that other thing
+1. Check if there is at least one module
+2. Error if there isn't
+3. Check if there is at lease one file
+4. Create a temp file is there isn't
+
 
 ## Log Categories
 
 List the categories used in logging data in your module.
 
-- Discussions Created
-- Canvas Files Deleted
-- etc.
+- Added temp HTML file for conversion
 
 ## Requirements
 
