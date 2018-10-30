@@ -24,6 +24,9 @@ module.exports = (course, stepCallback) => {
         let dummyFile = new course.content[0].constructor(`${course.info.unzippedPath}\\${fileName}`, fileGuts, true);
 
         course.content.push(dummyFile);
+
+        course.newInfo('tempFileAdded', true);
+        course.log('Added temp HTML file for conversion', {fileName});
     }
 
     stepCallback(null, course);
