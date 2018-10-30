@@ -1,0 +1,29 @@
+{
+  "name": "check-for-files",
+  "version": "1.0.0",
+  "description": "Ensure course files are not empty before moving course into canvas",
+  "main": "main.js",
+  "dependencies": {
+    "canvas-wrapper": "github:byuitechops/canvas-wrapper"
+  },
+  "devDependencies": {
+    "async": "^2.6.0",
+    "child-development-kit": "github:byuitechops/child-development-kit",
+    "tap": "^10.7.3"
+  },
+  "scripts": {
+    "start": "node ./node_modules/child-development-kit/runChild.js",
+    "test": "tap ./node_modules/child-development-kit/runChild.js -T"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byuitechops/check-for-files.git"
+  },
+  "author": "Daniel Green",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/byuitechops/check-for-files/issues"
+  },
+  "homepage": "https://github.com/byuitechops/check-for-files#readme",
+  "childType": "shell"
+}
