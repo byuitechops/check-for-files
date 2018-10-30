@@ -12,8 +12,13 @@ module.exports = (course, stepCallback) => {
     /* check for at least one module */
     // <resource identifier="RES_CONTENT_7053804" type="webcontent" d2l_2p0:material_type="contentmodule" d2l_2p0:link_target="" href="" title="" />
     var manifest = course.content.find(file => file.name === 'imsmanifest.xml');
-    
+    var moduleCount = manifest.dom('resource[d2l_2p0\\:material_type="contentmodule"]').length;
 
+    if (moduleCount === 0) {
+        var err = new Error('Unable to import: Modules is empty. Please add a module and try again');
+        course.fatalError(err);
+        stepCallback(err, course);
+    }
 
     /* check for at least one file. It DOES NOT have to be linked to a module */
     var hasFile = course.content.find(file => file.ext != '.xml');
