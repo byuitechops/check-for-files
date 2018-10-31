@@ -7,8 +7,6 @@ const cheerio = require('cheerio');
 
 module.exports = (course, stepCallback) => {
 
-    course.message(`file count: ${course.content.length}`);
-
     /* check for at least one module */
     var manifest = course.content.find(file => file.name === 'imsmanifest.xml');
     var moduleCount = manifest.dom('resource[d2l_2p0\\:material_type="contentmodule"]').length;
@@ -24,7 +22,7 @@ module.exports = (course, stepCallback) => {
     var hasFile = course.content.find(file => file.ext != '.xml');
     if (hasFile === undefined) {
         const fileGuts = '<html><body><h1>this is a dummy file created by the d2l to canvas conversion tool. Please delete me.</h1></body></html>',
-            fileName = 'dummyFile.html';
+            fileName = 'tempFile.html';
 
         /* magic used to copy the File object https://github.com/byuitechops/index-directory/blob/master/File.js */
         let tempFile = new course.content[0].constructor(`${course.info.unzippedPath}\\${fileName}`, fileGuts, true);
